@@ -162,11 +162,7 @@
                 <p class="px-5 mt-6 text-orange-500">Anda harus login untuk menulis review.</p>
             </div>
         @endauth
-
-
     </section>
-
-
 
     <div id="BottomNav"
         class="fixed z-50 bottom-0 w-full max-w-[640px] mx-auto border-t border-[#E7E7E7]  bg-white/70 backdrop-blur">
@@ -187,10 +183,6 @@
                     </button>
                 </form>
             </div>
-
-
-
-
         </div>
     </div>
     @if (session('success'))

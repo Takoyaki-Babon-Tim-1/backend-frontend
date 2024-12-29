@@ -39,7 +39,7 @@
                     class="flex items-center justify-between w-full gap-3 p-5 font-medium text-gray-800 border border-b-0 border-gray-700 rtl:text-right    hover:bg-[#EBF400]"
                     data-accordion-target="#accordion-collapse-body-2" aria-expanded="false"
                     aria-controls="accordion-collapse-body-2">
-                    <span>Bagaimana cara memesan di Takoyaki Babon?</span>
+                    <span class="text-left">Bagaimana cara memesan di Takoyaki Babon?</span>
                     <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
