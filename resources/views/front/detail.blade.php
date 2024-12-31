@@ -28,7 +28,7 @@
     <nav class="absolute top-0 flex w-full max-w-[640px] items-center justify-between px-5 mt-[30px] z-20">
         <a href="/">
             <div
-                class="flex items-center justify-center w-10 h-10 rounded-full bg-[#EBF400] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF4C1C80]">
+                class="flex items-center justify-center w-10 h-10 rounded-full bg-[#EBF400] transition-all duration-300 ">
                 <img src="{{ asset('assets/images/icons/arrow-left.svg') }}" class="object-contain w-5 h-5" alt="icon">
             </div>
         </a>
@@ -36,7 +36,7 @@
             <a href="{{ route('cart.index') }}">
                 <div class="relative">
                     <div
-                        class="flex items-center justify-center w-10 h-10 rounded-full bg-[#EBF400] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF4C1C80]">
+                        class="flex items-center justify-center w-10 h-10 rounded-full bg-[#EBF400] transition-all duration-300 ">
                         <img src="https://img.icons8.com/material-outlined/48/shopping-cart--v1.png"
                             class="object-contain w-5 h-5" alt="icon">
                     </div>

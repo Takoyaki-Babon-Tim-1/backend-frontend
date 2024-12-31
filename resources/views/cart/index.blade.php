@@ -5,7 +5,7 @@
         <div class="flex flex-col md:flex-row md:justify-between md:items-center">
             <a href="/">
                 <div
-                    class="flex items-center justify-center w-10 h-10 rounded-full bg-[#EBF400] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF4C1C80]">
+                    class="flex items-center justify-center w-10 h-10 rounded-full bg-[#EBF400] transition-all duration-300">
                     <img src="{{ asset('assets/images/icons/arrow-left.svg') }}" class="object-contain w-5 h-5" alt="icon">
                 </div>
             </a>
