@@ -61,7 +61,7 @@
                                         method="POST">
                                         @csrf
                                         <button type="submit"
-                                            class="bg-[#EBF400] text-black text-base font-semibold w-full max-w-[180px] py-1 px-4 rounded-full hover:bg-[#d86e47] transition-all duration-300">
+                                            class="bg-[#EBF400] text-black text-base font-semibold w-full max-w-[180px] py-1 px-4 rounded-full transition-all duration-300">
                                             Tambah
                                         </button>
                                     </form>

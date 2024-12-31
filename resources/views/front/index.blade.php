@@ -112,7 +112,7 @@
                                             method="POST">
                                             @csrf
                                             <button type="submit"
-                                                class="bg-[#EBF400] text-black text-base font-semibold w-full py-1 px-4 rounded-full hover:bg-[#d86e47] transition-all duration-300">
+                                                class="bg-[#EBF400] text-black text-base font-semibold w-full py-1 px-4 rounded-full transition-all duration-300">
                                                 Tambah
                                             </button>
                                         </form>
@@ -174,7 +174,7 @@
                                                     method="POST">
                                                     @csrf
                                                     <button type="submit"
-                                                        class="bg-[#EBF400] text-black text-base font-semibold w-full max-w-[180px] py-1 px-4 rounded-full hover:bg-[#d86e47] transition-all duration-300">
+                                                        class="bg-[#EBF400] text-black text-base font-semibold w-full max-w-[180px] py-1 px-4 rounded-full  transition-all duration-300">
                                                         Tambah
                                                     </button>
                                                 </form>
@@ -191,11 +191,9 @@
     @endif
 
 
-
-
     {{-- Nav --}}
     <div id="BottomNav"
-        class="fixed z-50 bottom-0 w-full max-w-[640px] mx-auto border-t border-[#E7E7E7] py-4 px-5 bg-white/70 backdrop-blur">
+        class="fixed z-50 bottom-0 w-full max-w-[640px] lg:max-w-[1024px] left-1/2 transform -translate-x-1/2 border-t border-[#E7E7E7] py-4 px-5 bg-white/70 backdrop-blur rounded-t-2xl">
         <div class="flex items-center justify-evenly ">
             <a href="#" class="nav-items">
                 <div class="flex flex-col items-center text-center gap-[7px] text-sm leading-[21px] font-semibold">
