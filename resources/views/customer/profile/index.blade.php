@@ -4,10 +4,8 @@
     <div class=" px-5 mt-[30px] rounded-lg bg-white ">
         <!-- Header -->
         <h1 class="mb-4 text-xl font-bold lg:text-2xl">Profil</h1>
-
         <!-- User Information -->
-        <div
-            class="flex flex-col p-3 space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0 md:space-x-4 pb-9">
+        <div class="flex flex-row items-center justify-between p-3 space-x-4 space-y-0 pb-9">
             <div class="flex items-center gap-5">
                 <div class="cursor-pointer" onclick="openImageModal('{{ Storage::url(Auth::user()->avatar) }}')">
                     <img src="{{ Storage::url(Auth::user()->avatar) }}" alt="Profile Picture"
@@ -18,16 +16,14 @@
                     <p class="text-sm font-medium text-gray-600 md:text-base">{{ Auth::user()->email }}</p>
                 </div>
             </div>
-
             <div id="imageModal" onclick="closeImageModal()"
                 class="fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300 bg-black bg-opacity-50 opacity-0 cursor-pointer pointer-events-none">
                 <img id="zoomedImage" src="" alt="Zoomed Profile Picture"
                     class="max-h-[80vh] max-w-[90vw] object-contain" onclick="event.stopPropagation()" />
             </div>
-
-            <a href="{{ route('customer.edit', auth()->user()) }}" class="hidden md:block">
-                <img src="assets/images/icons/mdi_edit.png" alt="icon-edit" class="text-gray-500 hover:text-gray-700">
-            </a>
+            <div><a href="{{ route('customer.edit', auth()->user()) }}">
+                    <img src="assets/images/icons/mdi_edit.png" alt="icon-edit" class="text-gray-500 hover:text-gray-700">
+                </a></div>
         </div>
 
         <!-- Account Section -->
@@ -51,6 +47,18 @@
                 <div class="flex items-center space-x-4">
                     <img src="assets/images/icons/privacy.svg" class="w-6 h-6 md:w-8 md:h-8" alt="icon">
                     <span class="text-lg font-medium">Kebijakan Privasi</span>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    class="w-5 h-5 text-gray-500">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
+
+            <a href="{{ route('terms.of.service') }}"
+                class="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm hover:bg-gray-100">
+                <div class="flex items-center space-x-4">
+                    <img src="assets/images/icons/service.svg" class="w-[24px] h-[24px] object-contain" alt="icon">
+                    <span class="text-lg font-medium">Kebijakan Layanan</span>
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                     class="w-5 h-5 text-gray-500">

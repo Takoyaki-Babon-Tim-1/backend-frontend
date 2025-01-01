@@ -1,7 +1,7 @@
 @extends('front.layouts.app')
 @section('content')
-    <div class="container px-4 py-8 mx-auto ">
-        <div class="flex flex-col mb-8 md:flex-row md:justify-between md:items-center">
+    <div class="container px-4 py-8 ">
+        <div class="flex items-center justify-between w-full px-3 mb-8">
             <a href="/my-profile">
                 <div
                     class="flex items-center justify-center w-10 h-10 rounded-full bg-[#EBF400] transition-all duration-300 ">
@@ -11,7 +11,7 @@
             <h1 class="text-2xl font-bold">FAQ</h1>
             <span class="max-w-none"></span>
         </div>
-        <div id="accordion-collapse" data-accordion="collapse">
+        <div id="accordion-collapse" data-accordion="collapse" class="px-3 text-justify">
             <h2 id="accordion-collapse-heading-1">
                 <button type="button"
                     class="flex items-center justify-between w-full gap-3 p-5 font-medium text-gray-800 border border-b-0 border-gray-700 rtl:text-right rounded-t-xl   hover:bg-[#EBF400]"
