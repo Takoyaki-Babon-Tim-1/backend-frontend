@@ -40,8 +40,6 @@
             </button>
         </form>
     </div>
-
-
     <section id="Categories" class="mt-[30px] ">
         <div class="flex items-center justify-between px-5">
             <h2 class="font-semibold">Kategori Menu</h2>
@@ -69,7 +67,6 @@
         </div>
     </section>
     {{-- End Category --}}
-
     {{-- diskon --}}
     @if ($discountedProducts->isNotEmpty())
         <section id="Diskon" class="mt-[30px] ">
@@ -136,7 +133,6 @@
         </script>
     @endif
     {{-- end diskon --}}
-
     @if ($categories->isNotEmpty())
         @foreach ($categories as $category)
             @if ($category->products->isNotEmpty())
@@ -189,8 +185,6 @@
             @endif
         @endforeach
     @endif
-
-
     {{-- Nav --}}
     <div id="BottomNav"
         class="fixed z-50 bottom-0 w-full max-w-[640px] lg:max-w-[1024px] left-1/2 transform -translate-x-1/2 border-t border-[#E7E7E7] py-4 px-5 bg-white/70 backdrop-blur rounded-t-2xl">
@@ -221,8 +215,6 @@
             </a>
         </div>
     </div>
-
-
     @if (!Auth::check())
         <div id="onboarding" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
             <div class="relative max-w-[640px] p-5 bg-white md:rounded-2xl shadow-lg text-center h-full md:h-[90%]">
@@ -258,6 +250,4 @@
             </div>
         </div>
     @endif
-
-
 @endsection
