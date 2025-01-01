@@ -11,7 +11,6 @@
             <h1 class="text-2xl font-bold">FAQ</h1>
             <span class="max-w-none"></span>
         </div>
-
         <div id="accordion-collapse" data-accordion="collapse">
             <h2 id="accordion-collapse-heading-1">
                 <button type="button"
@@ -31,7 +30,6 @@
                     <p class="mb-2 text-gray-500 dark:text-gray-400">Takoyaki Babon adalah aplikasi website yang memudahkan
                         pengguna untuk memesan makanan dan minuman secara online, khususnya menu takoyaki spesial dan
                         hidangan lainnya.</p>
-
                 </div>
             </div>
             <h2 id="accordion-collapse-heading-2">
@@ -52,7 +50,6 @@
                     <p class="mb-2 text-gray-500 dark:text-gray-400">Anda dapat memesan di Takoyaki Babon melalui situs web
                         kami atau aplikasi mobile kami. Pilih menu yang diinginkan, tambahkan ke keranjang, dan ikuti
                         langkah-langkah untuk penyelesaian pembayaran.</p>
-
                 </div>
             </div>
             <h2 id="accordion-collapse-heading-3">
@@ -69,11 +66,10 @@
                 </button>
             </h2>
             <div id="accordion-collapse-body-3" class="hidden" aria-labelledby="accordion-collapse-heading-3">
-                <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
+                <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
                     <p class="mb-2 text-gray-500 dark:text-gray-400">Karena Takoyaki Babon hanya menyediakan layanan
                         pemesanan, tidak ada biaya pengiriman. Pelanggan diharapkan untuk mengambil pesanan langsung di
                         lokasi kami.</p>
-
                 </div>
             </div>
             <h2 id="accordion-collapse-heading-4">
@@ -90,7 +86,7 @@
                 </button>
             </h2>
             <div id="accordion-collapse-body-4" class="hidden" aria-labelledby="accordion-collapse-heading-3">
-                <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
+                <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
                     <p class="mb-2 text-gray-500 dark:text-gray-400">Tidak, Takoyaki Babon hanya menyediakan layanan
                         pemesanan dan tidak memiliki layanan antar. Anda perlu datang langsung untuk mengambil pesanan.</p>
 
@@ -113,37 +109,24 @@
                 <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
                     <p class="mb-2 text-gray-500 dark:text-gray-400">Pembatalan pesanan dapat dilakukan sebelum pesanan
                         diproses. Hubungi layanan pelanggan kami segera untuk memproses pembatalan.</p>
-
                 </div>
             </div>
         </div>
 
     </div>
 @endsection
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Select all accordion buttons
         const accordionButtons = document.querySelectorAll('[data-accordion-target]');
-
         accordionButtons.forEach(button => {
             button.addEventListener('click', function() {
-                // Get the target panel
                 const targetId = button.getAttribute('data-accordion-target');
                 const targetPanel = document.querySelector(targetId);
-
-                // Check if the panel is already expanded
                 const isExpanded = button.getAttribute('aria-expanded') === 'true';
-
-                // Toggle the expanded state
                 button.setAttribute('aria-expanded', !isExpanded);
-
-                // Toggle the visibility using Tailwind CSS classes
                 targetPanel.classList.toggle('hidden');
                 targetPanel.classList.toggle('block');
-
-                // Rotate the icon
-
             });
         });
     });
