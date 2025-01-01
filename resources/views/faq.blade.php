@@ -1,6 +1,6 @@
 @extends('front.layouts.app')
 @section('content')
-    <div class="container px-4 py-8 ">
+    <div class=" px-5 my-[30px] ">
         <div class="flex items-center justify-between w-full px-3 mb-8">
             <a href="/my-profile">
                 <div
@@ -17,7 +17,7 @@
                     class="flex items-center justify-between w-full gap-3 p-5 font-medium text-gray-800 border border-b-0 border-gray-700 rtl:text-right rounded-t-xl   hover:bg-[#EBF400]"
                     data-accordion-target="#accordion-collapse-body-1" aria-expanded="true"
                     aria-controls="accordion-collapse-body-1">
-                    <span>Apa itu Takoyaki Babon?</span>
+                    <span class="text-left">Apa itu Takoyaki Babon?</span>
                     <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -57,7 +57,7 @@
                     class="flex items-center justify-between w-full gap-3 p-5 font-medium text-gray-800 border  border-gray-700 rtl:text-right  border-b-0 hover:bg-[#EBF400]"
                     data-accordion-target="#accordion-collapse-body-3" aria-expanded="false"
                     aria-controls="accordion-collapse-body-3">
-                    <span>Apakah ada biaya pengiriman?</span>
+                    <span class="text-left">Apakah ada biaya pengiriman?</span>
                     <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -77,7 +77,7 @@
                     class="flex items-center justify-between w-full gap-3 p-5 font-medium text-gray-800 border  border-gray-700 rtl:text-right   border-b-0  hover:bg-[#EBF400]"
                     data-accordion-target="#accordion-collapse-body-4" aria-expanded="false"
                     aria-controls="accordion-collapse-body-4">
-                    <span>Apakah Takoyaki Babon layanan antar?</span>
+                    <span class="text-left">Apakah Takoyaki Babon layanan antar?</span>
                     <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -89,7 +89,6 @@
                 <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
                     <p class="mb-2 text-gray-500 dark:text-gray-400">Tidak, Takoyaki Babon hanya menyediakan layanan
                         pemesanan dan tidak memiliki layanan antar. Anda perlu datang langsung untuk mengambil pesanan.</p>
-
                 </div>
             </div>
             <h2 id="accordion-collapse-heading-5">
@@ -97,7 +96,7 @@
                     class="flex items-center justify-between w-full gap-3 p-5 font-medium text-gray-800 border  border-gray-700 rtl:text-right   hover:bg-[#EBF400]"
                     data-accordion-target="#accordion-collapse-body-5" aria-expanded="false"
                     aria-controls="accordion-collapse-body-5">
-                    <span>Apakah bisa membatalkan pesanan? </span>
+                    <span class="text-left">Apakah bisa membatalkan pesanan? </span>
                     <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -112,7 +111,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 @endsection
 <script>

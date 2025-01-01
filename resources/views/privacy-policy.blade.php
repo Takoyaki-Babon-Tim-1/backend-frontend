@@ -1,6 +1,6 @@
 @extends('front.layouts.app')
 @section('content')
-    <div class="container px-4 py-8 ">
+    <div class="px-5 my-[30px]  ">
         <div class="flex items-center justify-between w-full px-3 mb-8">
             <a href="/my-profile">
                 <div

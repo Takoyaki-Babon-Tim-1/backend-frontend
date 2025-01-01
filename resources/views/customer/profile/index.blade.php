@@ -1,5 +1,4 @@
 @extends('front.layouts.app')
-
 @section('content')
     <div class=" px-5 mt-[30px] rounded-lg bg-white ">
         <!-- Header -->
@@ -25,7 +24,6 @@
                     <img src="assets/images/icons/mdi_edit.png" alt="icon-edit" class="text-gray-500 hover:text-gray-700">
                 </a></div>
         </div>
-
         <!-- Account Section -->
         <h1 class="mb-4 text-lg font-semibold md:text-xl lg:text-2xl">Akun</h1>
         <div class="w-full space-y-4">
@@ -41,7 +39,6 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>
             </a>
-
             <a href="{{ route('privacy.policy') }}"
                 class="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="flex items-center space-x-4">
@@ -53,7 +50,6 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>
             </a>
-
             <a href="{{ route('terms.of.service') }}"
                 class="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="flex items-center space-x-4">
@@ -65,7 +61,6 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>
             </a>
-
             <!-- Logout -->
             <form action="{{ route('logout') }}" method="POST"
                 class="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm hover:bg-red-100">
@@ -83,7 +78,6 @@
             </form>
         </div>
     </div>
-
     <!-- Bottom Navigation -->
     <div id="BottomNav"
         class="fixed z-50 bottom-0 w-full max-w-[640px] md:max-w-[768px] lg:max-w-[1024px] left-1/2 transform -translate-x-1/2 border-t border-[#E7E7E7] py-4 px-5 bg-white/70 backdrop-blur rounded-t-2xl">
