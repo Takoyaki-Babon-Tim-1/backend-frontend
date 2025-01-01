@@ -11,7 +11,6 @@
     }
 </style>
 @section('content')
-
     @php
         $user = auth()->user();
         $hasReviewed = false;
@@ -22,13 +21,11 @@
                 ->where('user_id', $user->id)
                 ->exists();
         }
-
         $totalRating = $product->reviews()->avg('rating');
     @endphp
-    <nav class="absolute top-0 flex w-full max-w-[640px] items-center justify-between px-5 mt-[30px] z-20">
+    <nav class="absolute top-0 flex w-full items-center justify-between px-5 mt-[30px] z-20">
         <a href="/">
-            <div
-                class="flex items-center justify-center w-10 h-10 rounded-full bg-[#EBF400] transition-all duration-300 ">
+            <div class="flex items-center justify-center w-10 h-10 rounded-full bg-[#EBF400] transition-all duration-300 ">
                 <img src="{{ asset('assets/images/icons/arrow-left.svg') }}" class="object-contain w-5 h-5" alt="icon">
             </div>
         </a>
@@ -40,7 +37,6 @@
                         <img src="https://img.icons8.com/material-outlined/48/shopping-cart--v1.png"
                             class="object-contain w-5 h-5" alt="icon">
                     </div>
-
                     @if ($cartItemCount > 0)
                         <span
                             class="absolute bottom-0 right-0 flex items-center justify-center w-4 h-4 text-xs font-semibold text-white bg-red-600 rounded-full">
@@ -51,7 +47,6 @@
                 </div>
             </a>
         @endauth
-
     </nav>
     <header id="Gallery" class="relative w-full h-[420px] flex shrink-0 rounded-b-[40px] bg-black overflow-hidden">
         <div class="relative flex w-full h-full shrink-0">
@@ -87,7 +82,6 @@
         <div class="flex items-center justify-between px-5">
             <h2 class="text-xl font-bold">Ulasan</h2>
         </div>
-
         <div class="px-5 mt-4">
             @forelse($product->reviews as $review)
                 <div class="flex flex-col gap-2 border-b">
@@ -116,7 +110,6 @@
                 <p class="text-gray-500">Belum ada review.</p>
             @endforelse
         </div>
-
         <!-- Review Input Form -->
         @auth
             @if (!$hasReviewed)
@@ -139,7 +132,6 @@
                                 @endfor
                             </div>
                         </div>
-
                         <!-- Review Text -->
                         <div>
                             <label for="review" class="font-semibold gap-y-2">Review:</label>
@@ -163,12 +155,9 @@
             </div>
         @endauth
     </section>
-
-    <div id="BottomNav"
-        class="fixed z-50 bottom-0 w-full max-w-[640px] mx-auto border-t border-[#E7E7E7]  bg-white/70 backdrop-blur">
+    <div id="BottomNav" class="z-50 bottom-0 w-full px-5  border-t border-[#E7E7E7]  bg-white/70 backdrop-blur">
         <div class="flex gap-2 mt-2">
             <div class="flex items-start w-6/12 px-4 py-1 md:w-4/12">
-                {{-- <img src="{{asset('assets/images/icons/note-favorite-fill-black.svg')}}" class="w-8 h-8" alt="icon"> --}}
                 <p class="text-lg font-semibold ">Rp
                     {{ number_format($product->total, 0, ',', '.') }} <span
                         class="text-sm font-normal text-red-500 line-through ">Rp
