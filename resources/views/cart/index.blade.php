@@ -1,7 +1,7 @@
 @extends('front.layouts.app')
 @section('content')
-    <div class="container px-4 py-8 ">
-        <div class="flex items-center justify-between w-full px-3 mb-8">
+    <div class="container px-5 mt-[30px] ">
+        <div class="flex items-center justify-between w-full mb-8">
             <a href="/">
                 <div
                     class="flex items-center justify-center w-10 h-10 rounded-full bg-[#EBF400] transition-all duration-300">
@@ -11,7 +11,7 @@
             <h1 class="text-2xl font-bold ">Pembelianmu</h1>
             <span class="max-w-none"></span>
         </div>
-        <div class="px-3 mt-3">
+        <div class="mt-3">
             @forelse ($cartItems as $item)
                 <div class="flex flex-col py-4 border-gray-400 md:flex-row">
                     <div class="flex-shrink-0">
@@ -70,7 +70,7 @@
         </div>
 
         {{-- CATATAN --}}
-        <div class="px-3">
+        <div>
             <h2 class="mt-3 text-lg font-bold md:text-xl">Bikin Sesuai Gaya Kamu!</h2>
             <div class="gap-y-2">
                 <div class="flex flex-row justify-between mt-3">
@@ -93,7 +93,7 @@
                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300  "
                 placeholder="Jangan pakai sayuran ya!"></textarea>
         </div>
-        <div class="flex flex-col items-end px-3 mt-8">
+        <div class="flex flex-col items-end mt-8">
             <div class="flex items-center justify-between w-full">
                 <span class="text-gray-600">Total Harga:</span>
                 <span class="text-xl font-bold">Rp {{ number_format($totalPrice, 0, ',', '.') }}</span>
