@@ -1,9 +1,8 @@
 @extends('front.layouts.app')
-
 @section('content')
-    <div class="p-4 bg-white rounded-lg ">
+    <div class=" px-5 mt-[30px] bg-white rounded-lg">
         {{-- HEADING --}}
-        <div class="pb-8">
+        <div class="mb-8">
             <h1 class="text-2xl font-semibold">Riwayat</h1>
         </div>
         <div class="flex flex-row pb-3 gap-x-10">
@@ -33,9 +32,8 @@
             </div>
         @else
             @foreach ($groupedOrders as $dateKey => $orders)
-                <div class="mb-4 bg-white rounded-xl">
-                    <p class="font-bold">{{ $orders->first()->order_id }}</p>
-                    <hr class="text-gray-200">
+                <div class="mb-4 bg-white last:pb-[80px] rounded-xl">
+                    <p class="font-bold border-b-2 border-slate-200">{{ $orders->first()->order_id }}</p>
                     <div id="order-content-{{ $dateKey }}"
                         class="flex flex-col gap-y-3 overflow-hidden m-0 max-h-[120px] transition-all duration-300">
                         @foreach ($orders as $order)
@@ -57,8 +55,9 @@
                                         <div
                                             class="bg-[#E6F2F2] text-[#27AE60] flex items-center justify-center py-1 px-3 rounded-sm">
                                             {{ $order->status }}</div>
-                                        <div class="flex items-end pt-10">Rp
-                                            {{ number_format($order->total_price, 0, ',', '.') }}
+                                        <div class="flex justify-end">
+                                            <p class="flex items-end pt-10">Rp
+                                                {{ number_format($order->total_price, 0, ',', '.') }}</p>
                                         </div>
                                     </div>
                                 </div>
