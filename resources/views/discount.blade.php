@@ -48,7 +48,7 @@
                                 {{-- HARGA --}}
                                 <p class="mt-auto mb-8 text-lg font-semibold ">Rp
                                     {{ number_format($product->total, 0, ',', '.') }} <span
-                                        class="text-sm font-normal text-red-500 line-through text-ngekos-gray">Rp
+                                        class="text-sm font-normal text-[#FF0000] line-through text-ngekos-gray">Rp
                                         {{ number_format($product->price, 0, ',', '.') }}</span></p>
                             </div>
                             <div class="flex flex-col items-end justify-end w-auto">

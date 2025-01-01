@@ -101,7 +101,7 @@
                                         {{-- HARGA --}}
                                         <p class="mt-auto mb-8 text-sm font-semibold md:text-lg ">Rp
                                             {{ number_format($product->total, 0, ',', '.') }} <span
-                                                class="text-sm font-normal text-red-500 line-through text-ngekos-gray">Rp
+                                                class="text-sm font-normal text-[#FF0000] line-through text-ngekos-gray">Rp
                                                 {{ number_format($product->price, 0, ',', '.') }}</span></p>
                                         <form
                                             action="{{ route('cart.add', ['productId' => $product->id, 'from' => 'index']) }}"
