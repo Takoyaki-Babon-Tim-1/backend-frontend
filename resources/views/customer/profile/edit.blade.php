@@ -1,12 +1,10 @@
 @extends('front.layouts.app')
-
 @section('content')
-    <div class="min-h-screen flex flex-col items-center py-8 max-w-[540px] mx-auto">
+    <div class="px-5 my-[30px] flex flex-col items-center w-full min-h-screen  ">
         <!-- Back Button and Title -->
         <div class="flex items-center justify-between w-full px-3 mb-8">
             <a href="/my-profile">
-                <div
-                    class="flex items-center justify-center w-10 h-10 rounded-full bg-[#EBF400] transition-all duration-300 hover:shadow-[0_10px_20px_0_#EBF400cc]">
+                <div class="flex items-center justify-center w-10 h-10 rounded-full bg-[#EBF400] ">
                     <img src="{{ asset('assets/images/icons/arrow-left.svg') }}" class="object-contain w-5 h-5" alt="icon">
                 </div>
             </a>
@@ -47,8 +45,7 @@
             </div>
 
             <!-- Save Button for Basic Info -->
-            <button type="submit"
-                class="w-full bg-[#EBF400] text-black font-semibold py-2 rounded-full hover:bg-[#EBF400cc] transition-colors">
+            <button type="submit" class="w-full bg-[#EBF400] text-black font-semibold py-2 rounded-full ">
                 Simpan
             </button>
         </form>
@@ -85,8 +82,7 @@
             </div>
 
             <!-- Save Button for Password -->
-            <button type="submit"
-                class="w-full bg-[#EBF400] text-black font-semibold py-2 rounded-full hover:bg-[#EBF400cc] transition-colors">
+            <button type="submit" class="w-full bg-[#EBF400] text-black font-semibold py-2 rounded-full  ">
                 Simpan
             </button>
         </form>

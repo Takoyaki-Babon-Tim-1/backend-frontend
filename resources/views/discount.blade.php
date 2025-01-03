@@ -1,5 +1,6 @@
 @extends('front.layouts.app')
 @section('content')
+    {{-- NAV --}}
     <nav class="flex items-center justify-between px-5 mt-[30px]">
         <a href="/" class="flex shrink-0">
             <img src="{{ asset('assets/images/logos/takoyaki-babon-logo.svg') }}" alt="icon" class="w-32">
@@ -32,41 +33,45 @@
 
     <section id="NonDiskon " class="mt-[30px]">
         <div class="flex items-center justify-between px-5 my-4">
-            <h2 class="font-semibold">Kategori Takoyaki</h2>
+            <h2 class="font-semibold">Diskon Hari ini</h2>
         </div>
-        <div class=" w-full mt-3 pb-[100px] px-5 my-4">
-            <div>
-                <div>
-                    <a href="" class="card ">
-                        <div
-                            class="flex flex-row justify-between w-full gap-2 pb-5 transition-all duration-300 border-b-2 rounded-xl ">
+        <div class="w-full px-5 mt-4 ">
+            @foreach ($discountedProducts as $product)
+                <div class="my-3">
+                    <a href="{{ route('front.detail', ['product' => $product->slug]) }}">
+                        <div class="flex flex-row justify-between w-full gap-2 pb-5 transition-all duration-300 border-b-2 rounded-xl "
+                            @if ($loop->last) style="border-bottom: none;" @endif>
                             <div class="w-6/12">
-                                <h3 class="min-h-[14px] text-lg font-semibold leading-[27px] truncate">
-                                    Takoyaki Babon
+                                <h3 class="min-h-[14px] text-lg font-semibold leading-[27px] ">
+                                    {{ $product->name }}
                                 </h3>
-                                <p class="mt-auto mb-8 text-lg font-semibold">
-                                    Rp 17.000
-                                </p>
+                                {{-- HARGA --}}
+                                <p class="mt-auto mb-8 text-lg font-semibold ">Rp
+                                    {{ number_format($product->total, 0, ',', '.') }} <span
+                                        class="text-sm font-normal text-[#FF0000] line-through text-ngekos-gray">Rp
+                                        {{ number_format($product->price, 0, ',', '.') }}</span></p>
                             </div>
                             <div class="flex flex-col items-end justify-end w-auto">
                                 <div class="w-full max-w-[150px]  max-h-[150px] ">
-                                    <img src="/assets/images/thumbnails/thumbnail-1.png" alt="image"
+                                    <img src="{{ Storage::url($product->thumbnail) }}" alt="image"
                                         class="object-contain w-full max-w-[150px] h-auto max-h-[150px] rounded-xl" />
                                 </div>
                                 <div class="flex justify-center w-full -mt-8">
-                                    <form action="" method="POST">
-                                        {{-- @csrf --}}
+                                    <form action="{{ route('cart.add', ['productId' => $product->id, 'from' => 'index']) }}"
+                                        method="POST">
+                                        @csrf
                                         <button type="submit"
-                                            class="bg-[#EBF400] text-black text-base font-semibold w-full max-w-[180px] py-1 px-4 rounded-full hover:bg-[#d86e47] transition-all duration-300">
+                                            class="bg-[#EBF400] text-black text-base font-semibold w-full max-w-[180px] py-1 px-4 rounded-full transition-all duration-300">
                                             Tambah
                                         </button>
                                     </form>
                                 </div>
                             </div>
                         </div>
+
+                    </a>
                 </div>
-                </a>
-            </div>
+            @endforeach
         </div>
         </div>
     </section>

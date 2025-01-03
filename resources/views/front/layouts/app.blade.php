@@ -12,10 +12,11 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body class="relative mx-auto w-full max-w-[640px] overflow-x-hidden bg-white z-0">
+<body
+    class="relative mx-auto w-full max-w-[1200px] overflow-x-hidden bg-white z-0 sm:max-w-[640px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1200px]">
     @yield('content')
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/home.js"></script>
-    
+
 </body>

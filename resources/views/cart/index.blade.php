@@ -1,11 +1,10 @@
 @extends('front.layouts.app')
 @section('content')
-    <div class="container px-4 py-8 mx-auto">
-
-        <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+    <div class="container px-5 my-[30px] ">
+        <div class="flex items-center justify-between w-full mb-8">
             <a href="/">
                 <div
-                    class="flex items-center justify-center w-10 h-10 rounded-full bg-[#EBF400] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF4C1C80]">
+                    class="flex items-center justify-center w-10 h-10 rounded-full bg-[#EBF400] transition-all duration-300">
                     <img src="{{ asset('assets/images/icons/arrow-left.svg') }}" class="object-contain w-5 h-5" alt="icon">
                 </div>
             </a>
@@ -39,10 +38,8 @@
                                         <button class="px-2 py-1 bg-gray-200 rounded-l-lg">-</button>
                                     @endif
                                 </form>
-
                                 {{-- Display current quantity --}}
                                 <span class="mx-2 text-gray-600">{{ $item->quantity }}</span>
-
                                 {{-- Increase quantity form --}}
                                 <form action="{{ route('cart.update', $item->id) }}" method="POST">
                                     @csrf
@@ -51,7 +48,6 @@
                                     <button class="px-2 py-1 bg-gray-200 rounded-r-lg">+</button>
                                 </form>
                             </div>
-
                             @php
                                 $total_products = $item->product->total * $item->quantity;
                             @endphp
@@ -66,16 +62,13 @@
                                 </form>
                             </div>
                         </div>
-
                     </div>
                 </div>
             @empty
                 <p>Tidak ada produk yang ditambahkan</p>
             @endforelse
-
-
-
         </div>
+
         {{-- CATATAN --}}
         <div>
             <h2 class="mt-3 text-lg font-bold md:text-xl">Bikin Sesuai Gaya Kamu!</h2>
@@ -93,31 +86,22 @@
                     <input type="checkbox" class="w-4 h-4 ">
                 </div>
             </div>
-
             {{-- TEXTAREA --}}
-
             <label for="message" class="block mt-3 mb-2 text-lg font-semibold text-gray-900">Catatan untuk penjual nih
                 😊</label>
             <textarea id="message" rows="4"
                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300  "
                 placeholder="Jangan pakai sayuran ya!"></textarea>
-
-
         </div>
-
-
-
         <div class="flex flex-col items-end mt-8">
             <div class="flex items-center justify-between w-full">
                 <span class="text-gray-600">Total Harga:</span>
                 <span class="text-xl font-bold">Rp {{ number_format($totalPrice, 0, ',', '.') }}</span>
             </div>
-
             <a href="{{ route('payment.checkout') }}"
                 class="px-4 py-2 mt-4 w-full flex justify-center font-semibold text-black bg-[#EBF400]  hover:bg-[#EBF400] rounded-full ">
                 <p>Bayar Sekarang</p>
             </a>
         </div>
-
     </div>
 @endsection

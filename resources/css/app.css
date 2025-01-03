@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.card > div:last-child {
+    border-bottom: none;
+}

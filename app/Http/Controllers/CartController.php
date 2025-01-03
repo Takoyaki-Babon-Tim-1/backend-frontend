@@ -52,11 +52,11 @@ class CartController extends Controller
         if ($request->input('from') === 'detail') {
             // Redirect back to the detail page using the product's slug
             return redirect()->route('front.detail', ['product' => $product->slug])
-                ->with('success', 'Product added to cart successfully!');
+                ->with('success', 'Produk berhasil ditambahkan ke keranjang!');
         } else {
             // Redirect back to the index page
             return redirect()->route('front.index')
-                ->with('success', 'Product added to cart successfully!');
+                ->with('success', 'Produk berhasil ditambahkan ke keranjang!');
         }
     }
 

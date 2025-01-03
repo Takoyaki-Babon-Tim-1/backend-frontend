@@ -11,7 +11,6 @@
     }
 </style>
 @section('content')
-
     @php
         $user = auth()->user();
         $hasReviewed = false;
@@ -22,13 +21,11 @@
                 ->where('user_id', $user->id)
                 ->exists();
         }
-
         $totalRating = $product->reviews()->avg('rating');
     @endphp
-    <nav class="absolute top-0 flex w-full max-w-[640px] items-center justify-between px-5 mt-[30px] z-20">
+    <nav class="absolute top-0 flex w-full items-center justify-between px-5 mt-[30px] z-20">
         <a href="/">
-            <div
-                class="flex items-center justify-center w-10 h-10 rounded-full bg-[#EBF400] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF4C1C80]">
+            <div class="flex items-center justify-center w-10 h-10 rounded-full bg-[#EBF400] ">
                 <img src="{{ asset('assets/images/icons/arrow-left.svg') }}" class="object-contain w-5 h-5" alt="icon">
             </div>
         </a>
@@ -36,14 +33,13 @@
             <a href="{{ route('cart.index') }}">
                 <div class="relative">
                     <div
-                        class="flex items-center justify-center w-10 h-10 rounded-full bg-[#EBF400] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF4C1C80]">
+                        class="flex items-center justify-center w-10 h-10 rounded-full bg-[#EBF400] transition-all duration-300 ">
                         <img src="https://img.icons8.com/material-outlined/48/shopping-cart--v1.png"
                             class="object-contain w-5 h-5" alt="icon">
                     </div>
-
                     @if ($cartItemCount > 0)
                         <span
-                            class="absolute bottom-0 right-0 flex items-center justify-center w-4 h-4 text-xs font-semibold text-white bg-red-600 rounded-full">
+                            class="absolute bottom-0 right-0 flex items-center justify-center w-4 h-4 text-xs font-semibold text-white bg-[#FF0000] rounded-full">
                             {{ $cartItemCount }}
                         </span>
                     @endif
@@ -51,7 +47,6 @@
                 </div>
             </a>
         @endauth
-
     </nav>
     <header id="Gallery" class="relative w-full h-[420px] flex shrink-0 rounded-b-[40px] bg-black overflow-hidden">
         <div class="relative flex w-full h-full shrink-0">
@@ -83,11 +78,10 @@
         </div>
 
     </section>
-    <section id="Reviews" class="pb-24 ">
+    <section id="Reviews">
         <div class="flex items-center justify-between px-5">
             <h2 class="text-xl font-bold">Ulasan</h2>
         </div>
-
         <div class="px-5 mt-4">
             @forelse($product->reviews as $review)
                 <div class="flex flex-col gap-2 border-b">
@@ -116,7 +110,6 @@
                 <p class="text-gray-500">Belum ada review.</p>
             @endforelse
         </div>
-
         <!-- Review Input Form -->
         @auth
             @if (!$hasReviewed)
@@ -139,16 +132,14 @@
                                 @endfor
                             </div>
                         </div>
-
                         <!-- Review Text -->
                         <div>
                             <label for="review" class="font-semibold gap-y-2">Review:</label>
                             <textarea name="review" id="review" rows="4"
-                                class="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400"
+                                class="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#F2994A]"
                                 placeholder="Tulis review Anda di sini..."></textarea>
                         </div>
-
-                        <button type="submit" class="px-4 py-2 text-white bg-orange-500 rounded-full hover:bg-orange-600">Kirim
+                        <button type="submit" class="px-4 py-2 text-white bg-[#F2994A] rounded-full ">Kirim
                             Review</button>
                     </form>
                 </div>
@@ -159,23 +150,16 @@
             @endif
         @else
             <div class="flex justify-center">
-                <p class="px-5 mt-6 text-orange-500">Anda harus login untuk menulis review.</p>
+                <p class="px-5 mt-6 text-[#F2994A]">Anda harus login untuk menulis review.</p>
             </div>
         @endauth
-
-
     </section>
-
-
-
-    <div id="BottomNav"
-        class="fixed z-50 bottom-0 w-full max-w-[640px] mx-auto border-t border-[#E7E7E7]  bg-white/70 backdrop-blur">
+    <div id="BottomNav" class="z-50 bottom-0 w-full px-5  border-t border-[#E7E7E7]  bg-white/70 backdrop-blur">
         <div class="flex gap-2 mt-2">
             <div class="flex items-start w-6/12 px-4 py-1 md:w-4/12">
-                {{-- <img src="{{asset('assets/images/icons/note-favorite-fill-black.svg')}}" class="w-8 h-8" alt="icon"> --}}
                 <p class="text-lg font-semibold ">Rp
                     {{ number_format($product->total, 0, ',', '.') }} <span
-                        class="text-sm font-normal text-red-500 line-through ">Rp
+                        class="text-sm font-normal text-[#FF0000] line-through ">Rp
                         {{ number_format($product->price, 0, ',', '.') }}</span></p>
             </div>
             <div class="w-6/12 px-4 md:w-8/12">
@@ -187,10 +171,6 @@
                     </button>
                 </form>
             </div>
-
-
-
-
         </div>
     </div>
     @if (session('success'))

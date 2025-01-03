@@ -1,16 +1,34 @@
 @extends('front.layouts.app')
 @section('content')
-    <div class="mx-auto max-w-[540px] rounded-lg bg-white p-4">
+    <div class="px-5 mt-[30px] bg-white rounded-lg pb-[100px]">
         {{-- HEADING --}}
-        <div class="pb-8">
-            <h1 class="text-2xl font-semibold ">Riwayat</h1>
+        <div class="mb-8">
+            <h1 class="text-2xl font-semibold">Riwayat</h1>
         </div>
-        {{-- LIST PICKER FILTERING --}}
         <div class="flex flex-row pb-3 gap-x-10">
-            <div><a href="#" class="text-lg font-medium underline decoration-2 underline-offset-2 ">Semua</a></div>
-            <div><a href="#" class="text-lg font-medium text-gray-400 ">Selesai</a></div>
-            <div><a href="#" class="text-lg font-medium text-gray-400 ">Dibatalkan</a></div>
+            {{-- Link Semua --}}
+            <a href="{{ route('payment.history') }}"
+                class="text-lg font-medium {{ request('status') === null ? 'underline decoration-2 underline-offset-2' : 'text-gray-400' }}">
+                Semua
+            </a>
+
+            {{-- Link Selesai --}}
+            <div>
+                <a href="{{ route('payment.history', ['status' => 'success']) }}"
+                    class="text-lg font-medium {{ request('status') === 'success' ? 'underline decoration-2 underline-offset-2' : 'text-gray-400' }}">
+                    Selesai
+                </a>
+            </div>
+
+            {{-- Link Dibatalkan --}}
+            <div>
+                <a href="{{ route('payment.history', ['status' => 'cancel']) }}"
+                    class="text-lg font-medium {{ request('status') === 'cancel' ? 'underline decoration-2 underline-offset-2' : 'text-gray-400' }}">
+                    Dibatalkan
+                </a>
+            </div>
         </div>
+
 
 
 
@@ -70,11 +88,11 @@
                                 <div class="button-text">Lihat Semua</div>
                             </div>
                             <div>
-                                <img class="toggle-icon transition-transform" src="{{ asset('assets/images/icons/down.svg') }}" alt="down-arrow">
+                                <img class="toggle-icon transition-transform"
+                                    src="{{ asset('assets/images/icons/down.svg') }}" alt="down-arrow">
                             </div>
                         </button>
                     </div>
-                    
                 @else
                     {{-- JIKA HANYA ADA 1 PRODUK --}}
                     <div class="flex flex-row justify-between pt-2">
@@ -123,15 +141,18 @@
                 </div>
             </div>
         @empty
-            <p class="text-center text-gray-500">Belum ada riwayat pembayaran.</p>
+            <div class="text-center text-gray-500 py-10">
+                <p class="text-lg font-medium">Tidak ada riwayat pembayaran.</p>
+            </div>
         @endforelse
     </div>
     </div>
 
 
+    {{-- Bottom Navigation --}}
     <div id="BottomNav"
-        class="sticky z-50 bottom-0 w-full max-w-[640px] mx-auto border-t border-[#E7E7E7] py-4 px-5 bg-white/70 backdrop-blur">
-        <div class="flex items-center justify-evenly ">
+        class="fixed z-50 bottom-0 w-full max-w-[640px] lg:max-w-[1024px] left-1/2 transform -translate-x-1/2 border-t border-[#E7E7E7] py-4 px-5 bg-white/70 backdrop-blur rounded-t-2xl">
+        <div class="flex items-center justify-evenly">
             <a href="{{ route('front.index') }}" class="nav-items">
                 <div class="flex flex-col items-center text-center gap-[7px] text-sm leading-[21px] font-semibold">
                     <img src="assets/images/icons/jelajahi-hitam.svg" class="w-6 h-6" alt="icon">
@@ -150,7 +171,7 @@
                     <span>Aktivitas</span>
                 </div>
             </a>
-            <a href="{{ route('customer.profile') }}"class="nav-items">
+            <a href="{{ route('customer.profile') }}" class="nav-items">
                 <div class="flex flex-col items-center text-center gap-[7px] text-sm leading-[21px]">
                     <img src="assets/images/icons/profil-black.svg" class="w-6 h-6" alt="icon">
                     <span>Profil</span>
@@ -159,7 +180,6 @@
         </div>
     </div>
 @endsection
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const toggleButtons = document.querySelectorAll('.toggle-button');
@@ -170,7 +190,8 @@
                 const toggleIcon = this.querySelector('.toggle-icon');
                 const buttonText = this.querySelector('.button-text');
 
-                if (orderContent.style.maxHeight === 'none' || orderContent.style.maxHeight === '') {
+                if (orderContent.style.maxHeight === 'none' || orderContent.style.maxHeight ===
+                    '') {
                     orderContent.style.maxHeight = '120px';
                     toggleIcon.style.transform = 'rotate(0deg)';
                     buttonText.innerText = 'Lihat Semua';
@@ -183,4 +204,3 @@
         });
     });
 </script>
-

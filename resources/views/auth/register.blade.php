@@ -9,7 +9,7 @@
                         <img src="{{ asset('assets/images/icons/arrow-left.svg') }}" class="object-contain w-5 h-5" alt="icon">
                     </div>
                 </a>
-                <a href="/">
+                <a href="{{ route('faq') }}">
                     <div
                         class="flex items-center justify-center w-8 h-8 rounded-full bg-[#EBF400] transition-all duration-300 hover:shadow-[0_10px_20px_0_#EBF400cc]">
                         <img src="{{ asset('assets/images/icons/question.png') }}" class="object-contain w-4 h-4" alt="icon">
