@@ -65,7 +65,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/checkout', [PaymentController::class, 'checkout'])->name('payment.checkout');
 
     // RIWAYAT
-    Route::get('/history', [PaymentHistoryController::class, 'index'])->name('payment.history');
+    Route::get('/history', [PaymentHistoryController::class, 'history'])->name('payment.history');
    
 
      // Tambahkan route untuk halaman FAQ, Kebijakan Privasi, dan Kebijakan Layanan

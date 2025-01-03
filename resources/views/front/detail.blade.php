@@ -204,3 +204,26 @@
         </script>
     @endif
 @endsection
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const stars = document.querySelectorAll("#star-rating .star");
+
+        stars.forEach((star) => {
+            star.addEventListener("click", function() {
+                const selectedRating = this.getAttribute("data-index");
+
+                stars.forEach((star) => {
+                    star.src = "{{ asset('assets/images/icons/Star-grey.svg') }}";
+                });
+
+                stars.forEach((star) => {
+                    if (star.getAttribute("data-index") <= selectedRating) {
+                        star.src = "{{ asset('assets/images/icons/Star 1.svg') }}";
+                    }
+                });
+            });
+        });
+    });
+</script>

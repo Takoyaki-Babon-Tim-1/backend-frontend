@@ -1,7 +1,7 @@
 @extends('front.layouts.app')
 @section('content')
     <nav class="flex items-center justify-between px-5 mt-[30px]">
-        <a href="index.html" class="flex shrink-0">
+        <a href="/" class="flex shrink-0">
             <img src="{{ asset('assets/images/logos/takoyaki-babon-logo.svg') }}" alt="icon" class="w-32">
         </a>
         <div class="flex items-center gap-1">
@@ -19,7 +19,7 @@
 
                         @if ($cartItemCount > 0)
                             <span
-                                class="absolute bottom-0 right-0 flex items-center justify-center w-4 h-4 text-xs font-semibold text-white bg-[#EBF400] rounded-full">
+                                class="absolute bottom-0 right-0 flex items-center justify-center w-4 h-4 text-xs font-semibold text-white bg-red-600 rounded-full">
                                 {{ $cartItemCount }}
                             </span>
                         @endif

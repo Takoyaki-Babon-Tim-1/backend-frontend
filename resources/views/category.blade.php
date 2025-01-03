@@ -1,7 +1,7 @@
 @extends('front.layouts.app')
 @section('content')
     <nav class="flex items-center justify-between px-5 mt-[30px]">
-        <a href="index.html" class="flex shrink-0">
+        <a href="/" class="flex shrink-0">
             <img src="{{ asset('assets/images/logos/takoyaki-babon-logo.svg') }}" alt="icon" class="w-32">
         </a>
         <div class="flex items-center gap-1">
