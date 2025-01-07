@@ -21,27 +21,32 @@ class PaymentController extends Controller
         Config::$isProduction = config('midtrans.is_production');
         Config::$isSanitized = config('midtrans.is_sanitized');
         Config::$is3ds = config('midtrans.is_3ds');
-    
+
         $user = auth()->user();
         $cartItems = AddToCart::where('user_id', $user->id)->get();
-    
+
+        $request->validate([
+            'message' => 'nullable|string|max:500',
+        ]);
+
         $totalPrice = 0;
         foreach ($cartItems as $item) {
-            $totalPrice += $item->product->total * $item->quantity; 
+            $totalPrice += $item->product->total * $item->quantity;
         }
-    
+
         $order_id = 'ORDER-' . time() . '-' . $user->id;
-    
+
         $order = Order::create([
             'user_id' => $user->id,
             'total_price' => $totalPrice,
             'order_id' => $order_id,
+            'message' => $request->message,
         ]);
-    
+
         foreach ($cartItems as $item) {
             $order->products()->attach($item->product_id, ['quantity' => $item->quantity]);
         }
-    
+
         $params = [
             'transaction_details' => [
                 'order_id' => $order_id,
@@ -52,15 +57,14 @@ class PaymentController extends Controller
                 'email' => $user->email,
             ],
         ];
-    
+
         try {
             $snapToken = Snap::getSnapToken($params);
-            Mail::to('sahalntesting@gmail.com')->send(new AdminPaymentNotification($order, $user));
-    
+            Mail::to('muhamadfajri9090@gmail.com')->send(new AdminPaymentNotification($order, $user));
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => 'Payment error. Please try again.']);
         }
-    
+
         return view('payment.checkout', compact('snapToken', 'totalPrice'));
     }
 
@@ -77,7 +81,7 @@ class PaymentController extends Controller
             // Update the status based on the transaction_status
             if ($notification['transaction_status'] == 'settlement') {
                 $order->status = 'success';
-                // AddToCart::where('user_id', $order->user_id)->delete();
+                AddToCart::where('user_id', $order->user_id)->delete();
             } elseif (in_array($notification['transaction_status'], ['cancel', 'deny', 'expire'])) {
                 $order->status = 'failed';
             }

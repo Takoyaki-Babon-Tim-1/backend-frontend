@@ -104,7 +104,7 @@
                             <div class="flex flex-col">
                                 <p class="font-bold truncate">{{ $order->products->first()->name }}</p>
                                 <p>{{ $order->created_at->format('d M Y') }}</p>
-                                <p>x{{ $product->pivot->quantity }}</p>
+                                <p>x{{ $order->products->first()->pivot->quantity }}</p>
                             </div>
                         </div>
                         <div>

@@ -62,20 +62,20 @@
                 </svg>
             </a>
             <!-- Logout -->
-            <form action="{{ route('logout') }}" method="POST"
-                class="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm hover:bg-red-100">
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
-                <button type="submit" class="flex items-center justify-between w-full space-x-4 text-red-500">
-                    <div class="flex items-center space-x-4">
-                        <img src="assets/images/icons/keluar.svg" class="w-6 h-6 md:w-8 md:h-8" alt="icon">
-                        <span class="text-lg font-medium">Keluar Akun</span>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                        class="w-5 h-5 text-red-500">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </button>
             </form>
+            <div onclick="confirmLogout()"
+                class="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm hover:bg-red-100 cursor-pointer">
+                <div class="flex items-center space-x-4">
+                    <img src="assets/images/icons/keluar.svg" class="w-6 h-6 md:w-8 md:h-8" alt="icon">
+                    <span class="text-lg font-medium text-red-500">Keluar Akun</span>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    class="w-5 h-5 text-red-500">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </div>
         </div>
     </div>
     <!-- Bottom Navigation -->
@@ -109,3 +109,22 @@
         </div>
     </div>
 @endsection
+
+<script>
+    function confirmLogout() {
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: "Anda akan keluar dari akun ini.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ya, keluar',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('logout-form').submit();
+            }
+        });
+    }
+</script>

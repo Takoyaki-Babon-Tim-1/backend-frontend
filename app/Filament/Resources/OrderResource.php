@@ -47,6 +47,10 @@ class OrderResource extends Resource
                     ->disabled()
                     ->required(),
 
+                Forms\Components\Textarea::make('message')
+                    ->label('Catatan Penjual')
+                    ->columnSpanFull(),
+
                 Forms\Components\Repeater::make('products')
                     ->relationship('products')
                     ->schema([

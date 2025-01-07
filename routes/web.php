@@ -71,8 +71,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/cart/add/{productId}', [CartController::class, 'add'])->name('cart.add');
     Route::patch('/cart/update/{cartId}', [CartController::class, 'update'])->name('cart.update');
     Route::delete('/cart/remove/{cartId}', [CartController::class, 'remove'])->name('cart.remove');
-    Route::get('/checkout', [PaymentController::class, 'checkout'])->name('payment.checkout');
-
+    Route::match(['get', 'post'], '/checkout', [PaymentController::class, 'checkout'])->name('payment.checkout');
     // RIWAYAT
     Route::get('/history', [PaymentHistoryController::class, 'history'])->name('payment.history');
    

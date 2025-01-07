@@ -187,7 +187,7 @@
         <div class="flex items-center justify-evenly ">
             <a href="#" class="nav-items">
                 <div class="flex flex-col items-center text-center gap-[7px] text-sm leading-[21px] font-semibold">
-                    <img src="assets/images/icons/jelajahi.svg" class="w-6 h-6" alt="icon">
+                    <img src="assets/images/icons/Jelajahi.svg" class="w-6 h-6" alt="icon">
                     <span>Beranda</span>
                 </div>
             </a>
