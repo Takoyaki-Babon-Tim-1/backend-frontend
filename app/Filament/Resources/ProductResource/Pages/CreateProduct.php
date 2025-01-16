@@ -20,5 +20,10 @@ class CreateProduct extends CreateRecord
 
         return $data;
     }
+
+    protected function getRedirectUrl(): string
+    {
+        return '/admin/products';
+    }
 }
 

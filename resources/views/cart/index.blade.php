@@ -1,4 +1,5 @@
 @extends('front.layouts.app')
+@section('title', 'Keranjang')
 @section('content')
     <div class="container px-5 my-[30px] ">
         <div class="flex items-center justify-between w-full mb-8">

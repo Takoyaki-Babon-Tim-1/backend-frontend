@@ -11,6 +11,7 @@ use App\Models\Order;
 use Filament\Facades\Filament;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\OrderNotificationController;
 
 /*
 |--------------------------------------------------------------------------

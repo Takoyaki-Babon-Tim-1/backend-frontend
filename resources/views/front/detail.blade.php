@@ -1,4 +1,5 @@
 @extends('front.layouts.app')
+@section('title', $product->name)
 <style>
     .star.selected {
         content: url('{{ asset('assets/images/icons/Star 1.svg') }}');
@@ -157,10 +158,14 @@
     <div id="BottomNav" class="z-50 bottom-0 w-full px-5  border-t border-[#E7E7E7]  bg-white/70 backdrop-blur">
         <div class="flex gap-2 mt-2">
             <div class="flex items-start w-6/12 px-4 py-1 md:w-4/12">
-                <p class="text-lg font-semibold ">Rp
-                    {{ number_format($product->total, 0, ',', '.') }} <span
-                        class="text-sm font-normal text-[#FF0000] line-through ">Rp
-                        {{ number_format($product->price, 0, ',', '.') }}</span></p>
+                <p class="text-lg font-semibold">
+                    Rp {{ number_format($product->total, 0, ',', '.') }}
+                    @if ($product->discount > 0)
+                        <span class="text-sm font-normal text-[#FF0000] line-through">
+                            Rp {{ number_format($product->price, 0, ',', '.') }}
+                        </span>
+                    @endif
+                </p>
             </div>
             <div class="w-6/12 px-4 md:w-8/12">
                 <form action="{{ route('cart.add', ['productId' => $product->id, 'from' => 'detail']) }}" method="POST"

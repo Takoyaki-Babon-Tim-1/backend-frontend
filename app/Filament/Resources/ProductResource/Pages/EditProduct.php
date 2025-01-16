@@ -4,6 +4,7 @@ namespace App\Filament\Resources\ProductResource\Pages;
 
 use App\Filament\Resources\ProductResource;
 use Filament\Resources\Pages\EditRecord;
+use Filament\Actions;
 
 class EditProduct extends EditRecord
 {
@@ -19,6 +20,12 @@ class EditProduct extends EditRecord
         }
 
         return $data;
+    }
+    protected function getHeaderActions(): array
+    {
+        return [
+            Actions\DeleteAction::make(),
+        ];
     }
 }
 

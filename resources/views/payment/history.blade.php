@@ -1,4 +1,5 @@
 @extends('front.layouts.app')
+@section('title', 'History')
 @section('content')
     <div class="px-5 mt-[30px] bg-white rounded-lg pb-[100px]">
         {{-- HEADING --}}
@@ -55,7 +56,9 @@
                                         <p>x{{ $product->pivot->quantity }}</p>
                                     </div>
                                 </div>
-                                <div>
+
+                                <div class="flex flex-col items-end">
+                                    {{-- Status Order --}}
                                     @if ($order->status == 'success')
                                         <div
                                             class="bg-[#E6F2F2] text-[#27AE60] flex items-center justify-center py-1 px-3 rounded-md">
@@ -73,12 +76,21 @@
                                         </div>
                                     @endif
 
+                                    <div class="flex items-center gap-x-2 pt-10">
+                                        @if ($product->pivot->discounted_price < $product->pivot->price)
+                                            <div class="text-gray-500 line-through">
+                                                Rp {{ number_format($product->pivot->price, 0, ',', '.') }}
+                                            </div>
+                                        @endif
 
-                                    <div class="flex items-end pt-10">Rp {{ number_format($product->total, 0, ',', '.') }}
+                                        <div class="text-black font-bold">
+                                            Rp {{ number_format($product->pivot->discounted_price, 0, ',', '.') }}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         @endforeach
+
                     </div>
 
                     {{-- LIHAT SEMUA --}}
@@ -124,8 +136,17 @@
                                     Gagal
                                 </div>
                             @endif
-                            <div class="flex items-end pt-10">Rp
-                                {{ number_format($order->products->first()->total, 0, ',', '.') }}</div>
+                            <div class="flex items-end pt-10 gap-x-2">
+                                @if ($order->products->first()->pivot->discounted_price < $order->products->first()->pivot->price)
+                                    <div class="text-gray-500 line-through">
+                                        Rp {{ number_format($order->products->first()->pivot->price, 0, ',', '.') }}
+                                    </div>
+                                @endif
+
+                                <div class="text-black font-bold">
+                                    Rp {{ number_format($order->products->first()->pivot->discounted_price, 0, ',', '.') }}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 @endif

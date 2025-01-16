@@ -134,19 +134,26 @@
     {{-- end diskon --}}
     @if ($categories->isNotEmpty())
         @foreach ($categories as $category)
-            @if ($category->products->isNotEmpty())
+            @php
+                // Filter produk yang tidak memiliki diskon
+                $filteredProducts = $category->products->filter(function ($product) {
+                    return empty($product->discount) || $product->discount == 0;
+                });
+            @endphp
+
+            @if ($filteredProducts->isNotEmpty())
                 <section id="category-{{ $category->slug }}" class="mt-[30px] pb-[20px]">
                     <div class="flex items-center justify-between px-5 my-4">
                         <h2 class="text-lg font-semibold md:text-xl">{{ $category->name }} Babon</h2>
                     </div>
-                    <div class="grid w-full grid-cols-1 gap-6 my-4 mt-3 sm:grid-cols-2 md:grid-cols-3 ">
-                        @foreach ($category->products as $product)
-                            <div class=" px-5 last:pb-[40px]">
+                    <div class="grid w-full grid-cols-1 gap-6 my-4 mt-3 sm:grid-cols-2 md:grid-cols-3">
+                        @foreach ($filteredProducts as $product)
+                            <div class="px-5 last:pb-[40px]">
                                 <a href="{{ route('front.detail', ['product' => $product->slug]) }}" class="card">
                                     <div class="flex flex-row justify-between w-full gap-2 pb-5 rounded-xl">
                                         <div class="w-6/12">
                                             <h3
-                                                class="min-h-[14px] md:text-lg text-sm font-semibold leading-[27px] truncate ">
+                                                class="min-h-[14px] md:text-lg text-sm font-semibold leading-[27px] truncate">
                                                 {{ $product->name }}
                                             </h3>
                                             <p class="mt-auto mb-8 text-sm font-semibold md:text-lg">
@@ -166,7 +173,7 @@
                                                     method="POST">
                                                     @csrf
                                                     <button type="submit"
-                                                        class="bg-[#EBF400] text-black text-base font-semibold w-full max-w-[180px] py-1 px-4 rounded-full  transition-all duration-300">
+                                                        class="bg-[#EBF400] text-black text-base font-semibold w-full max-w-[180px] py-1 px-4 rounded-full transition-all duration-300">
                                                         Tambah
                                                     </button>
                                                 </form>
@@ -181,6 +188,7 @@
             @endif
         @endforeach
     @endif
+
     {{-- Nav --}}
     <div id="BottomNav"
         class="fixed z-50 bottom-0 w-full max-w-[640px] lg:max-w-[1024px] left-1/2 transform -translate-x-1/2 border-t border-[#E7E7E7] py-4 px-5 bg-white/70 backdrop-blur rounded-t-2xl">

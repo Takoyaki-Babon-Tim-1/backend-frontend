@@ -1,4 +1,5 @@
 @extends('front.layouts.app')
+@section('title', Auth::user()->name)
 @section('content')
     <div class=" px-5 mt-[30px] rounded-lg bg-white ">
         <!-- Header -->

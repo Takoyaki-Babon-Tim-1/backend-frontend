@@ -22,10 +22,11 @@ class AdminPaymentNotification extends Mailable
     public function build()
     {
         return $this->subject('New Payment Received')
-                    ->view('emails.admin_payment_notification')
-                    ->with([
-                        'order' => $this->order,
-                        'user' => $this->user,
-                    ]);
+            ->view('emails.admin_payment_notification')
+            ->with([
+                'order' => $this->order,
+                'user' => $this->user,
+                'products' => $this->order->products,
+            ]);
     }
 }

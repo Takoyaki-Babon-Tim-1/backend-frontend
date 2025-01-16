@@ -51,7 +51,7 @@ class ProductResource extends Resource
                     ->label('Category')
                     ->relationship('category', 'name')
                     ->required(),
-                
+
                 TextInput::make('discount')
                     ->label('Diskon')
                     ->numeric()
@@ -91,6 +91,7 @@ class ProductResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
